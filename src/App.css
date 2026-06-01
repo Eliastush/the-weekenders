@@ -17,9 +17,11 @@
 .landing-header {
   position: sticky;
   top: 0;
-  z-index: 30;
+  left: 0;
+  right: 0;
+  z-index: 60;
   backdrop-filter: blur(18px);
-  background: rgba(247, 237, 226, 0.88);
+  background: rgba(247, 237, 226, 0.94);
   border-bottom: 1px solid rgba(33, 76, 61, 0.12);
 }
 
@@ -197,6 +199,7 @@
 .hero-panel {
   display: grid;
   align-items: start;
+  justify-items: center;
 }
 
 .hero-card {
@@ -207,6 +210,8 @@
   background: white;
   border: 1px solid rgba(33, 76, 61, 0.08);
   box-shadow: var(--shadow-lg);
+  max-width: 560px;
+  width: 100%;
 }
 
 .hero-card-top {
@@ -562,72 +567,44 @@
 .install-banner {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(249, 115, 22, 0.18);
+  border: 1px solid rgba(33, 76, 61, 0.14);
   border-radius: 20px;
-  padding: 14px 16px;
+  padding: 10px 12px;
   display: flex;
   align-items: center;
   gap: 14px;
   box-shadow: 0 8px 32px rgba(31, 41, 55, 0.12);
 }
 
-.install-logo {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: var(--primary);
-  color: white;
-  display: flex;
-  flex-direction: column;
+.install-icon-button,
+.install-close {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: 9px;
-  text-align: center;
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.install-logo div {
-  padding: 1px 0;
-}
-
-.install-content {
-  flex: 1;
-  min-width: 0;
-}
-
-.install-app-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-  margin: 0;
-  white-space: nowrap;
-}
-
-.install-subtitle {
-  font-size: 12px;
-  color: var(--text-secondary);
-  margin: 2px 0 0;
-}
-
-.install-button {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
+  border: 1px solid rgba(33, 76, 61, 0.12);
+  border-radius: 14px;
+  background: white;
+  color: var(--primary);
   cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.install-button:hover {
+.install-icon-button:hover,
+.install-close:hover {
+  background: rgba(33, 76, 61, 0.08);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.install-icon,
+.install-close-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.install-close {
+  border-color: rgba(249, 115, 22, 0.16);
 }
 
 .mobile-menu-btn {
@@ -2097,9 +2074,13 @@
 
 .gallery-card img {
   width: 100%;
-  height: 240px;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   display: block;
+}
+
+.gallery-card > div {
+  padding: 18px 20px 22px;
 }
 
 .gallery-card > div {

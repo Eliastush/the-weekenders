@@ -1,4 +1,5 @@
 ﻿import { useEffect, useState } from 'react'
+import Icon from './Icon'
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>
@@ -10,6 +11,7 @@ interface BeforeInstallPromptEvent extends Event {
 
 export default function InstallButton() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null)
+  const [showBanner, setShowBanner] = useState(true)
 
   useEffect(() => {
     const handler = (event: Event) => {
@@ -18,14 +20,24 @@ export default function InstallButton() {
       setDeferredPrompt(e)
     }
 
-    const installed = () => setDeferredPrompt(null)
+    const installed = () => setShowBanner(false)
+
+    const handlePopstate = () => {
+      const navigatorStandalone = (window.navigator as any).standalone
+      if (navigatorStandalone || window.matchMedia('(display-mode: standalone)').matches) {
+        window.close()
+      }
+    }
 
     window.addEventListener('beforeinstallprompt', handler as EventListener)
     window.addEventListener('appinstalled', installed)
+    window.addEventListener('popstate', handlePopstate)
+    window.history.pushState({ page: 'home' }, '', window.location.href)
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handler as EventListener)
       window.removeEventListener('appinstalled', installed)
+      window.removeEventListener('popstate', handlePopstate)
     }
   }, [])
 
@@ -35,23 +47,19 @@ export default function InstallButton() {
     deferredPrompt.prompt()
     await deferredPrompt.userChoice
     setDeferredPrompt(null)
+    setShowBanner(false)
   }
 
-  if (!deferredPrompt) return null
+  if (!showBanner) return null
 
   return (
     <div className="install-banner-container">
       <div className="install-banner">
-        <div className="install-logo">
-          <div>THE</div>
-          <div>WEEKENDERS</div>
-        </div>
-        <div className="install-content">
-          <p className="install-app-name">Install The Weekenders</p>
-          <p className="install-subtitle">theweekenderske.com</p>
-        </div>
-        <button className="install-button" onClick={installApp} type="button">
-          Install
+        <button className="install-icon-button" onClick={installApp} type="button" aria-label="Install app">
+          <Icon name="download" className="install-icon" />
+        </button>
+        <button className="install-close" onClick={() => setShowBanner(false)} type="button" aria-label="Close popup">
+          <Icon name="close" className="install-close-icon" />
         </button>
       </div>
     </div>
