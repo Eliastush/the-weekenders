@@ -53,17 +53,38 @@ export default function InstallButton() {
 
   if (!showBanner) return null
 
-  return (
-    <div className="install-banner-container">
-      <div className="install-banner">
-        <img src={logo} alt="The Weekenders logo" className="install-logo" />
-        <button className="install-icon-button" onClick={installApp} type="button" aria-label="Install app">
-          <Icon name="download" className="install-icon" />
-        </button>
-        <button className="install-close" onClick={() => setShowBanner(false)} type="button" aria-label="Close popup">
-          <Icon name="close" className="install-close-icon" />
-        </button>
+ return (
+  <div className="install-banner-container">
+    <div className="install-banner">
+      <img src={logo} alt="The Weekenders logo" className="install-logo" />
+
+      <div className="install-content">
+        <span className="install-title">
+          The Weekenders <span className="beta-badge">App</span>
+        </span>
+        <span className="install-subtitle">
+          Meet people. Share experiences. Create memories.
+        </span>
       </div>
+
+      <button
+        className="install-icon-button"
+        onClick={installApp}
+        type="button"
+        aria-label="Install app"
+      >
+        <Icon name="download" className="install-icon" />
+      </button>
+
+      <button
+        className="install-close"
+        onClick={() => setShowBanner(false)}
+        type="button"
+        aria-label="Close popup"
+      >
+        <Icon name="close" className="install-close-icon" />
+      </button>
     </div>
-  )
+  </div>
+)
 }
