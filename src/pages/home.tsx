@@ -121,6 +121,10 @@ export default function Home() {
             <span />
           </button>
           <nav className={`nav-links ${mobileNavOpen ? 'open' : ''}`}>
+            <div className="nav-tag">BETA</div>
+            <button className="nav-close" onClick={() => setMobileNavOpen(false)} aria-label="Close navigation">
+              ×
+            </button>
             <a href="#about" onClick={() => setMobileNavOpen(false)}>
               About
             </a>

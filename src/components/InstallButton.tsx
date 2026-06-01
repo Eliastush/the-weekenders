@@ -1,5 +1,6 @@
 ﻿import { useEffect, useState } from 'react'
 import Icon from './Icon'
+import logo from '../assets/logo.png'
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>
@@ -55,6 +56,7 @@ export default function InstallButton() {
   return (
     <div className="install-banner-container">
       <div className="install-banner">
+        <img src={logo} alt="The Weekenders logo" className="install-logo" />
         <button className="install-icon-button" onClick={installApp} type="button" aria-label="Install app">
           <Icon name="download" className="install-icon" />
         </button>
