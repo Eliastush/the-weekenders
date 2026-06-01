@@ -1,0 +1,16 @@
+# Recommended images for The Weekenders
+# Place these files in src/assets/ and reference them in components/pages.
+
+1. hero_banner.jpg — Wide hero image (recommended 1600x900, landscape). Theme: warm outdoor meetup, soft sunlight.
+2. park_group.jpg — Group at a park (recommended 1200x800). Use for event cards / gallery.
+3. snacks_table.jpg — Close-up of snacks/refreshments (800x600). Use to illustrate KES 150 contribution.
+4. city_escape.jpg — City-to-nature transition (1200x800). Use for road trips section.
+5. founder_elias.jpg — Portrait of Elias (600x800). Use for Founder's note (already present as elias.jpg).
+6. national_map_kenya.png — Simple map highlighting Kenya regions (800x600). Use to show nationwide reach.
+7. activities_collage.jpg — Collage of community activities (1200x800). Use for social grid.
+8. event_poster_uhutu.jpg — Event poster artwork (800x1200). Use for featured event card.
+
+Notes:
+- Use optimized JPEG/PNG with reasonable compression for web (quality ~70-80%).
+- Prefer consistent color grading (warm tones) so images blend with the orange/green theme.
+- Filenames should be lowercase, hyphen-separated.

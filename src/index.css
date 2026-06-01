@@ -1,0 +1,77 @@
+:root {
+  --primary: #f97316; /* Warm Orange */
+  --primary-dark: #c2410c;
+  --accent: #ff7a18;
+  --secondary: #0b6b3a; /* Forest Green */
+  --bg: #fffaf0; /* Ivory / Off-white */
+  --surface: #fff8f2;
+  --surface-alt: #fff2e6;
+  --text: #1f2933; /* Charcoal */
+  --text-secondary: #6b4b2a;
+  --border: rgba(249, 115, 22, 0.12);
+  --shadow: 0 8px 20px rgba(31, 41, 55, 0.06);
+  --shadow-md: 0 14px 30px rgba(31, 41, 55, 0.08);
+  --shadow-lg: 0 22px 48px rgba(31, 41, 55, 0.1);
+  --gradient-primary: linear-gradient(135deg, rgba(249,115,22,0.95), rgba(11,107,58,0.9));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  color: var(--text);
+  font-weight: 700;
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.2; letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.875rem, 4vw, 2.25rem); line-height: 1.3; }
+h3 { font-size: 1.25rem; line-height: 1.5; }
+
+p { margin: 0; line-height: 1.75; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; border: none; background: none; cursor: pointer; }
+img { display: block; max-width: 100%; height: auto; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+/* SVG Icons */
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+a, button, input, select, textarea {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
